@@ -1,15 +1,18 @@
 import { motion } from 'framer-motion'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDownIcon } from 'lucide-react'
+import HeroBackground from '../HeroBackground'
 
 export default function Hero() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center text-center">
-      <div>
+    <section id="home" className="relative min-h-screen w-full overflow-hidden">
+      <HeroBackground />
+      
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-5xl font-bold mb-4"
+          className="text-5xl font-bold mb-4 text-white"
         >
           Parikshit Joshi
         </motion.h1>
@@ -17,7 +20,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-2xl text-gray-400 mb-8"
+          className="text-2xl text-gray-300 mb-8"
         >
           Software Engineer | Realtime Rendering Specialist
         </motion.h2>
@@ -34,13 +37,14 @@ export default function Hero() {
           </a>
         </motion.div>
       </div>
+      
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
-        className="absolute bottom-10"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
       >
-        <ChevronDown className="animate-bounce" size={32} />
+        <ChevronDownIcon className="animate-bounce text-white" size={32} />
       </motion.div>
     </section>
   )
